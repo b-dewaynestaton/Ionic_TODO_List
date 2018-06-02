@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>
+      TODO APP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-input [(ngModel)]="todo" placeholder="Save task before adding" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button small color="primary" (click)="add()">ADD<ion-icon name="add-circle" padding></ion-icon></button>
+  <button ion-button small color="secondary" (click)="saveData()">SAVE<ion-icon name="bookmark" padding></ion-icon></button>
+  <button ion-button small color="dark" (click)="loadData()">LOAD<ion-icon name="cloud-download" padding></ion-icon></button>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let t of todos">
+
+      <ion-item>
+        {{t}}
+        <p>Swipe left to delete</p>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(t)"><ion-icon name="trash"></ion-icon>Delete</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
